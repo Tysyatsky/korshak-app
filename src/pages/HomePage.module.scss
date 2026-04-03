@@ -1,0 +1,729 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// ── Hero ────────────────────────────────────────────────────────────────────
+.hero {
+  background: $color-primary;
+  overflow: hidden;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 600px;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 60px 0 60px;
+  color: $color-white;
+
+  h1 {
+    color: $color-white;
+    font-size: clamp(52px, 8.3vw, 119px);
+    line-height: 0.92;
+  }
+
+  @include respond(md) {
+    padding: 48px 0 32px;
+  }
+}
+
+.heroMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.heroTitle {
+  font-size: 18px;
+  line-height: 28px;
+  color: rgba($color-white, 0.7);
+}
+
+.heroContact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 18px;
+  color: $color-white;
+}
+
+.heroPhone {
+  font-size: 22px;
+  font-weight: 500;
+  color: $color-white;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.heroImage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    max-height: 680px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @include respond(md) {
+    max-height: 400px;
+    overflow: hidden;
+  }
+}
+
+// ── Stats ───────────────────────────────────────────────────────────────────
+.stats {
+  background: $bg-body;
+  border-bottom: 1px solid rgba($color-primary, 0.08);
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba($color-primary, 0.08);
+  border-right: 1px solid rgba($color-primary, 0.08);
+  border-left: 1px solid rgba($color-primary, 0.08);
+
+  @include respond(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 40px 32px;
+  background: $bg-body;
+
+  @include respond(md) {
+    padding: 28px 20px;
+  }
+}
+
+.statValue {
+  font-size: clamp(40px, 5vw, 81px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $color-primary;
+}
+
+.statLabel {
+  font-size: 16px;
+  line-height: 22px;
+  color: $color-gray;
+  max-width: 160px;
+}
+
+// ── About Preview ───────────────────────────────────────────────────────────
+.aboutPreview {
+  padding: 80px 0;
+
+  @include respond(md) {
+    padding: 56px 0;
+  }
+}
+
+.aboutInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.aboutQuote {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  p:first-child {
+    font-size: clamp(22px, 2.8vw, 40px);
+    line-height: 1.2;
+    font-weight: 500;
+    color: $color-primary;
+    letter-spacing: -0.01em;
+  }
+}
+
+.aboutQuoteSecondary {
+  font-size: 18px;
+  color: $color-gray;
+  font-weight: 400;
+}
+
+.aboutBody {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 18px;
+  line-height: 28px;
+  color: $color-dark;
+}
+
+.linkArrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-primary;
+  margin-top: 8px;
+  transition: gap 0.2s;
+
+  &:hover {
+    gap: 14px;
+  }
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+// ── Services Preview ─────────────────────────────────────────────────────────
+.servicesPreview {
+  padding: 80px 0;
+  background: $color-secondary;
+
+  @include respond(md) {
+    padding: 56px 0;
+  }
+}
+
+.servicesPrevInner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.sectionTitle {
+  font-size: clamp(36px, 5vw, 81px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $color-dark;
+}
+
+.servicesList {
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba($color-primary, 0.1);
+
+  &:first-child {
+    border-top: 1px solid rgba($color-primary, 0.1);
+  }
+
+  @include respond(md) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+.serviceInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.serviceName {
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-dark;
+}
+
+.serviceNote {
+  font-size: 14px;
+  color: $color-gray;
+}
+
+.servicePrice {
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-primary;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.servicesFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+
+  @include respond(md) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.servicesDisclaimer {
+  font-size: 14px;
+  color: $color-gray;
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border: 1.5px solid $color-primary;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-primary;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+
+  &:hover {
+    background: $color-primary;
+    color: $color-white;
+  }
+}
+
+// ── Certificates ─────────────────────────────────────────────────────────────
+.certs {
+  padding: 80px 0;
+
+  @include respond(md) {
+    padding: 56px 0;
+  }
+}
+
+.certsInner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.certsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+
+  h3 {
+    max-width: 600px;
+  }
+
+  p {
+    font-size: 18px;
+    color: $color-gray;
+    white-space: nowrap;
+  }
+
+  @include respond(md) {
+    flex-direction: column;
+    align-items: flex-start;
+
+    p {
+      white-space: normal;
+    }
+  }
+}
+
+.certsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+
+  @include respond(md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.certCard {
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: $color-secondary;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  &:hover img {
+    transform: scale(1.03);
+  }
+}
+
+// ── Reviews ───────────────────────────────────────────────────────────────────
+.reviews {
+  background: $color-primary;
+  padding: 80px 0;
+
+  @include respond(md) {
+    padding: 56px 0;
+  }
+}
+
+.reviewsInner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.reviewsTitle {
+  color: $color-white;
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reviewCard {
+  background: rgba($color-white, 0.08);
+  border: 1px solid rgba($color-white, 0.15);
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  color: $color-white;
+
+  @include respond(md) {
+    padding: 24px;
+    gap: 24px;
+  }
+}
+
+.reviewText {
+  font-size: 18px;
+  line-height: 28px;
+  flex: 1;
+}
+
+.reviewAuthor {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reviewName {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.reviewRole {
+  font-size: 14px;
+  color: rgba($color-white, 0.6);
+}
+
+// ── Equipment ─────────────────────────────────────────────────────────────────
+.equipment {
+  padding: 80px 0;
+
+  @include respond(md) {
+    padding: 56px 0;
+  }
+}
+
+.equipmentInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.equipmentImage {
+  img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+  }
+}
+
+.equipmentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  h3 {
+    color: $color-dark;
+  }
+}
+
+.equipmentFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 20px;
+    line-height: 28px;
+    color: $color-dark;
+  }
+}
+
+.featureDot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: $color-primary;
+  margin-top: 10px;
+}
+
+// ── Address ───────────────────────────────────────────────────────────────────
+.address {
+  padding: 80px 0;
+  background: $color-secondary;
+
+  @include respond(md) {
+    padding: 56px 0;
+  }
+}
+
+.addressInner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  h3 {
+    color: $color-dark;
+  }
+}
+
+.addressText {
+  font-size: 20px;
+  line-height: 32px;
+  color: $color-dark;
+}
+
+.mapEmbed {
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+
+  iframe {
+    display: block;
+  }
+}
+
+// ── FAQ ───────────────────────────────────────────────────────────────────────
+.faq {
+  padding: 80px 0;
+
+  @include respond(md) {
+    padding: 56px 0;
+  }
+}
+
+.faqInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.faqHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+
+  h3 {
+    color: $color-dark;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    color: $color-gray;
+  }
+
+  @include respond(md) {
+    position: static;
+  }
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+}
+
+.faqItem {
+  border-bottom: 1px solid rgba($color-primary, 0.1);
+
+  &:first-child {
+    border-top: 1px solid rgba($color-primary, 0.1);
+  }
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-dark;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.faqIcon {
+  flex-shrink: 0;
+  transition: transform 0.25s;
+  color: $color-primary;
+}
+
+.faqOpen .faqIcon {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 17px;
+  line-height: 26px;
+  color: $color-gray;
+}
+
+// ── CTA ───────────────────────────────────────────────────────────────────────
+.cta {
+  background: $color-primary;
+  overflow: hidden;
+}
+
+.ctaInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ctaText {
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: $color-white;
+
+  h2 {
+    font-size: clamp(32px, 4vw, 60px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    opacity: 0.8;
+  }
+
+  @include respond(md) {
+    padding: 56px 0 40px;
+  }
+}
+
+.ctaNote {
+  font-size: 14px !important;
+  opacity: 0.6 !important;
+}
+
+.ctaContact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 18px;
+  color: $color-white;
+  opacity: 1 !important;
+}
+
+.ctaPhone {
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 500;
+  color: $color-white;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.ctaImage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    max-height: 560px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @include respond(md) {
+    max-height: 340px;
+    overflow: hidden;
+  }
+}

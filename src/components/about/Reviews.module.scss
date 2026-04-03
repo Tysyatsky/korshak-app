@@ -1,0 +1,71 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.reviews {
+  padding: 80px 0;
+
+  @include respond(md) {
+    padding: 56px 0;
+  }
+}
+
+.reviewsInner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.sectionTitle {
+  font-size: clamp(28px, 3vw, 40px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: $color-dark;
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reviewCard {
+  background: $color-secondary;
+  border-radius: 8px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+
+  @include respond(md) {
+    padding: 24px;
+  }
+}
+
+.reviewText {
+  font-size: 17px;
+  line-height: 26px;
+  color: $color-dark;
+  flex: 1;
+}
+
+.reviewAuthor {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reviewName {
+  font-size: 16px;
+  font-weight: 500;
+  color: $color-dark;
+}
+
+.reviewRole {
+  font-size: 13px;
+  color: $color-gray;
+}

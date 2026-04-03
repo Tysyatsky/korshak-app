@@ -1,0 +1,196 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding: 60px 0 100px;
+
+  @include respond(md) {
+    padding: 40px 0 60px;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 56px;
+}
+
+.title {
+  font-size: clamp(48px, 6vw, 81px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $color-dark;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: $color-gray;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 48px;
+  align-items: start;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+// ── Sidebar ──────────────────────────────────────────────────────────────────
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  position: sticky;
+  top: 88px;
+
+  @include respond(md) {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.catBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  color: $color-dark;
+  text-align: left;
+  background: transparent;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    background: $color-secondary;
+    color: $color-primary;
+  }
+}
+
+.catActive {
+  background: $color-secondary;
+  color: $color-primary;
+  font-weight: 500;
+
+  .catArrow {
+    color: $color-primary;
+  }
+}
+
+.catArrow {
+  color: $color-gray-light;
+  flex-shrink: 0;
+}
+
+// ── Content ───────────────────────────────────────────────────────────────────
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba($color-primary, 0.1);
+  margin-bottom: 8px;
+  color: $color-gray;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-family: inherit;
+  color: $color-dark;
+  outline: none;
+
+  &::placeholder {
+    color: $color-gray-light;
+  }
+}
+
+.servicesList {
+  display: flex;
+  flex-direction: column;
+}
+
+.noResults {
+  padding: 40px 0;
+  font-size: 18px;
+  color: $color-gray;
+}
+
+.serviceRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba($color-primary, 0.08);
+
+  @include respond(md) {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+.serviceInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.serviceName {
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-dark;
+  line-height: 28px;
+}
+
+.serviceNote {
+  font-size: 14px;
+  color: $color-gray;
+}
+
+.servicePrep {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: $color-gray-light;
+
+  svg {
+    flex-shrink: 0;
+    color: $color-gray-light;
+  }
+}
+
+.servicePrice {
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-primary;
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 2px;
+}

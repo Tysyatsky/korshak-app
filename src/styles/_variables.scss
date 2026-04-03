@@ -1,12 +1,20 @@
 // Color palette
 $color-primary: #1828A4;
 $color-secondary: #F3F4FA;
+$color-dark: #23242A;
+$color-gray: #828596;
+$color-gray-light: #9E9FAE;
+$color-white: #FFFFFF;
 
 // Background
 $bg-body: #FFFEFA;
 
 // Effect
 $blur-effect: blur(2px);
+
+// Layout
+$container-max-width: 1440px;
+$container-padding: 40px;
 
 // Common breakpoints
 $breakpoint-sm: 480px;

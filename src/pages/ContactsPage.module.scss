@@ -1,0 +1,262 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// ── Address ───────────────────────────────────────────────────────────────────
+.address {
+  padding: 80px 0;
+
+  @include respond(md) {
+    padding: 56px 0;
+  }
+}
+
+.addressInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.addressText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  h3 {
+    font-size: clamp(28px, 3vw, 40px);
+    color: $color-dark;
+    margin-top: 8px;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    color: $color-gray;
+  }
+}
+
+.title {
+  font-size: clamp(48px, 6vw, 81px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $color-dark;
+}
+
+.addressDetails {
+  font-style: normal;
+  font-size: 20px;
+  line-height: 32px;
+  color: $color-dark;
+}
+
+.mapLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-primary;
+  transition: gap 0.2s;
+
+  &:hover {
+    gap: 14px;
+  }
+}
+
+.mapEmbed {
+  border-radius: 8px;
+  overflow: hidden;
+  height: 400px;
+  background: $color-secondary;
+}
+
+// ── CTA ───────────────────────────────────────────────────────────────────────
+.cta {
+  background: $color-primary;
+  overflow: hidden;
+}
+
+.ctaInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ctaText {
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: $color-white;
+
+  h2 {
+    font-size: clamp(32px, 4vw, 60px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    opacity: 0.8;
+  }
+
+  @include respond(md) {
+    padding: 56px 0 40px;
+  }
+}
+
+.ctaNote {
+  font-size: 14px !important;
+  opacity: 0.6 !important;
+}
+
+.ctaContact {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+  font-size: 18px;
+  color: $color-white;
+}
+
+.ctaPhone {
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 500;
+  color: $color-white;
+  display: block;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.ctaImage {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  img {
+    width: 100%;
+    max-height: 560px;
+    object-fit: cover;
+    object-position: top;
+  }
+
+  @include respond(md) {
+    max-height: 340px;
+    overflow: hidden;
+  }
+}
+
+// ── FAQ ───────────────────────────────────────────────────────────────────────
+.faq {
+  padding: 80px 0;
+
+  @include respond(md) {
+    padding: 56px 0;
+  }
+}
+
+.faqInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.faqHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 100px;
+
+  h3 {
+    font-size: clamp(24px, 2.5vw, 40px);
+    color: $color-dark;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    color: $color-gray;
+  }
+
+  @include respond(md) {
+    position: static;
+  }
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+}
+
+.faqItem {
+  border-bottom: 1px solid rgba($color-primary, 0.1);
+
+  &:first-child {
+    border-top: 1px solid rgba($color-primary, 0.1);
+  }
+}
+
+.faqQuestion {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-dark;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.faqIcon {
+  flex-shrink: 0;
+  transition: transform 0.25s;
+  color: $color-primary;
+}
+
+.faqOpen .faqIcon {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  padding-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 17px;
+  line-height: 26px;
+  color: $color-gray;
+}

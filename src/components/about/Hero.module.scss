@@ -1,0 +1,200 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.hero {
+  overflow: hidden;
+}
+
+// ── Grid ──────────────────────────────────────────────────────────────────────
+.heroGrid {
+  display: grid;
+  background-color: $bg-body;
+
+  // Desktop (>1024px): 3 columns
+  grid-template-columns: 1fr 1.4fr 1fr;
+  grid-template-rows: 660px;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  // Tablet (≤1024px): 2 columns, colRight drops to row 2
+  @include respond(lg) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 500px auto;
+    max-width: unset;
+  }
+
+  // Mobile (≤768px): 1 column, flow by order
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
+
+// ── Left column ───────────────────────────────────────────────────────────────
+.colLeft {
+  grid-column: 1;
+  grid-row: 1;
+  padding: 0 48px 48px;
+  z-index: 1;
+
+  @include respond(lg) {
+    padding: 0 40px 40px;
+  }
+
+  @include respond(md) {
+    grid-column: unset;
+    grid-row: unset;
+    order: 3;
+    padding: 0 24px 32px;
+    z-index: unset;
+  }
+}
+
+.heading {
+  font-size: clamp(40px, 5vw, 76px);
+  font-weight: 500;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: $color-primary;
+
+  // Desktop + Tablet: spans cols 1–2, overlays photo
+  grid-column: 1 / 3;
+  grid-row: 1;
+  align-self: center;
+  z-index: 1;
+  padding: 0 0 80px 48px;
+  pointer-events: none;
+
+  @include respond(lg) {
+    padding: 0 0 60px 40px;
+  }
+
+  @include respond(md) {
+    grid-column: unset;
+    grid-row: unset;
+    align-self: unset;
+    z-index: unset;
+    order: 2;
+    padding: 24px 24px 0;
+    pointer-events: auto;
+  }
+}
+
+.description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: $color-gray;
+  max-width: 300px;
+}
+
+// ── Center column ─────────────────────────────────────────────────────────────
+.colCenter {
+  grid-column: 2;
+  grid-row: 1;
+  position: relative;
+
+  @include respond(md) {
+    grid-column: unset;
+    grid-row: unset;
+    position: static;
+    order: 1;
+    height: 360px;
+  }
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  position: absolute;
+  inset: 0;
+
+  @include respond(md) {
+    position: static;
+    height: 100%;
+  }
+}
+
+// ── Right column ──────────────────────────────────────────────────────────────
+.colRight {
+  grid-column: 3;
+  grid-row: 1;
+  padding: 40px 48px 48px;
+
+  // Tablet: spans both columns in row 2
+  @include respond(lg) {
+    grid-column: 1 / 3;
+    grid-row: 2;
+    padding: 32px 40px;
+  }
+
+  @include respond(md) {
+    grid-column: unset;
+    grid-row: unset;
+    order: 4;
+    padding: 40px 24px 48px;
+  }
+}
+
+.nav {
+  display: flex;
+
+  @include respond(md) {
+    display: none !important;
+  }
+}
+
+.navLink {
+  font-size: 16px;
+  color: $color-dark;
+  text-decoration: none;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: $color-primary;
+  color: $color-white;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.credentialText {
+  font-size: 14px;
+  color: $color-gray;
+  line-height: 1.5;
+}
+
+.contactHours {
+  font-size: clamp(24px, 2.5vw, 36px);
+  font-weight: 600;
+  color: $color-dark;
+  line-height: 1.2;
+}
+
+.contactPhone {
+  font-size: clamp(20px, 2vw, 30px);
+  font-weight: 600;
+  color: $color-dark;
+  text-decoration: none;
+  margin-top: 4px;
+
+  &:hover {
+    color: $color-primary;
+  }
+}

@@ -1,0 +1,123 @@
+@use "../styles/variables" as *;
+@use "../styles/mixins" as *;
+
+.footer {
+  position: relative;
+  background: $bg-body;
+  border-top: 1px solid rgba($color-primary, 0.08);
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 48px;
+  padding-bottom: 48px;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+
+  @include respond(md) {
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: $color-primary;
+  margin-bottom: 16px;
+}
+
+.hours {
+  font-size: 18px;
+  line-height: 28px;
+  color: $color-dark;
+}
+
+.phone {
+  font-size: 18px;
+  color: $color-dark;
+  font-weight: 500;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.copy {
+  font-size: 14px;
+  color: $color-gray;
+  margin-top: 8px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 24px;
+
+  @include respond(md) {
+    align-items: flex-start;
+  }
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+
+  @include respond(md) {
+    align-items: flex-start;
+  }
+}
+
+.link {
+  font-size: 18px;
+  color: $color-dark;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.credits {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 14px;
+  color: $color-gray;
+
+  @include respond(md) {
+    align-items: flex-start;
+  }
+
+  span {
+    color: $color-dark;
+  }
+}
+
+.watermark {
+  font-size: clamp(80px, 14vw, 200px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgba($color-primary, 0.06);
+  line-height: 1;
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  user-select: none;
+  margin-top: -40px;
+}
