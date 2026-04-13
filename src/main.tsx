@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     path: "/kontakty",
     element: <ContactsPage />,
   },
-]);
+], { basename: import.meta.env.BASE_URL });
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

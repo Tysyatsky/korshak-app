@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from './ContactsPage.module.scss';
 import { MAP_LINK, MAP_EMBED } from '../data/config';
+import { asset } from '../utils/asset';
 import '../styles/global.scss';
 
 const faqs = [
@@ -106,7 +107,7 @@ function ContactsPage() {
             </div>
           </div>
           <div className={styles.ctaImage}>
-            <img src="/images/doctor-portrait.jpg" alt="Коршак Наталія" />
+            <img src={asset('images/doctor-portrait.jpg')} alt="Коршак Наталія" />
           </div>
         </div>
       </section>

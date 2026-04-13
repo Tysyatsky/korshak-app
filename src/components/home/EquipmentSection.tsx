@@ -1,4 +1,5 @@
 import styles from './EquipmentSection.module.scss';
+import { asset } from '../../utils/asset';
 
 export default function EquipmentSection() {
   return (
@@ -12,7 +13,7 @@ export default function EquipmentSection() {
           </div>
         </div>
         <div className={styles.equipmentImageWrap}>
-          <img src="/images/equipment.jpg" alt="Обладнання для УЗД діагностики" />
+          <img src={asset('images/equipment.jpg')} alt="Обладнання для УЗД діагностики" />
           <span className={`${styles.callout} ${styles.calloutA}`}>Чітко відображає найдрібніші структури</span>
           <span className={`${styles.callout} ${styles.calloutB}`}>Сканує структуру судин та кровотік</span>
           <span className={`${styles.callout} ${styles.calloutC}`}>Забезпечує якісне зображення</span>

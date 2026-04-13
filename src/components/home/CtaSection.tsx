@@ -1,4 +1,6 @@
 import styles from './CtaSection.module.scss';
+import { asset } from '../../utils/asset';
+
 
 export default function CtaSection() {
   return (
@@ -26,7 +28,7 @@ export default function CtaSection() {
         </div>
 
         <div className={styles.ctaPhoto}>
-          <img src="/images/doctor-portrait.jpg" alt="Коршак Наталія" />
+          <img src={asset('images/doctor-portrait.jpg')} alt="Коршак Наталія" />
         </div>
 
         <p className={styles.ctaNote}>Запис на обстеження здійснюється тільки під час робочих годин</p>

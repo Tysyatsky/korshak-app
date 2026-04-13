@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router';
 import { Stack, Group, Title, Text, Anchor, Image } from '@mantine/core';
 import styles from './Hero.module.scss';
+import { asset } from '../../utils/asset';
 
 const Hero = () => {
   return (
@@ -16,7 +17,7 @@ const Hero = () => {
         </Stack>
 
         <div className={styles.colCenter}>
-          <Image src="/images/doctor-hero.jpg" alt="Коршак Наталія" className={styles.heroImage} />
+          <Image src={asset('images/doctor-hero.jpg')} alt="Коршак Наталія" className={styles.heroImage} />
         </div>
 
         <Stack className={styles.colRight} justify="space-between" gap={0}>

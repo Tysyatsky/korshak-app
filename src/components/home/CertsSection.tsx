@@ -1,6 +1,7 @@
 import { Link } from 'react-router';
 import styles from './CertsSection.module.scss';
 import btn from '../../styles/buttons.module.scss';
+import { asset } from '../../utils/asset';
 
 export default function CertsSection() {
   return (
@@ -14,7 +15,7 @@ export default function CertsSection() {
         <div className={styles.certsStack}>
           {[1, 6, 9, 12].map((n) => (
             <div key={n} className={styles.certCard}>
-              <img src={`/images/cert-${n}.jpg`} alt={`Сертифікат ${n}`} />
+              <img src={asset(`images/cert-${n}.jpg`)} alt={`Сертифікат ${n}`} />
             </div>
           ))}
         </div>
