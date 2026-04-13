@@ -1,0 +1,105 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.reviews {
+  padding: 80px 0 100px;
+
+  @include respond(md) {
+    padding: 56px 0 64px;
+  }
+}
+
+.reviewsInner {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.reviewsTitle {
+  font-size: clamp(40px, 5.5vw, 81px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $color-primary;
+}
+
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.reviewCard {
+  border: 1px solid rgba($color-primary, 0.2);
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  color: $color-primary;
+  position: relative;
+  overflow: hidden;
+
+  &:nth-child(1) { grid-column: 1; grid-row: 1; }
+  &:nth-child(2) { grid-column: 2; grid-row: 1; }
+  &:nth-child(3) { grid-column: 2; grid-row: 2; }
+  &:nth-child(4) { grid-column: 3; grid-row: 2; }
+  &:nth-child(5) { grid-column: 1; grid-row: 3; }
+
+  @include respond(md) {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+    gap: 24px;
+  }
+}
+
+.reviewCardFeatured {
+  background: $color-primary;
+  border-color: $color-primary;
+  color: $color-white;
+}
+
+.reviewContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quoteIcon {
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: -2px;
+  opacity: 0.35;
+}
+
+.reviewText {
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.reviewAuthor {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reviewName {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.reviewRole {
+  font-size: 13px;
+  opacity: 0.55;
+}
+
+.featuredDecor {
+  position: absolute;
+  bottom: -8px;
+  right: -8px;
+  pointer-events: none;
+}

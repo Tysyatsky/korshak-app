@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from './ContactsPage.module.scss';
+import { MAP_LINK, MAP_EMBED } from '../data/config';
 import '../styles/global.scss';
 
 const faqs = [
@@ -67,7 +68,7 @@ function ContactsPage() {
               1 поверх, кабінет №121
             </address>
             <a
-              href="https://maps.google.com/?q=Рівне,+вул.+Карнаухова+25А"
+              href={MAP_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.mapLink}
@@ -81,7 +82,7 @@ function ContactsPage() {
           <div className={styles.mapEmbed}>
             <iframe
               title="Адреса клініки"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.6!2d26.2516!3d50.6199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x472f1576a7c97a11%3A0x0!2z0KDRltCy0L3QtSwg0LLRg9C7LiDQmtCw0YDQvdCw0YXQvtCy0LAg25A!5e0!3m2!1suk!2sua!4v1!5m2!1suk!2sua"
+              src={MAP_EMBED}
               width="100%"
               height="100%"
               style={{ border: 0 }}

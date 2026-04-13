@@ -1,0 +1,38 @@
+@use "./variables" as *;
+
+.btnFilled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 32px;
+  background: $color-primary;
+  color: $color-white;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.88;
+  }
+}
+
+.btnOutline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border: 1.5px solid $color-primary;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-primary;
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+
+  &:hover {
+    background: $color-primary;
+    color: $color-white;
+  }
+}

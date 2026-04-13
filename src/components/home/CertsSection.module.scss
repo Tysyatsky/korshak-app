@@ -1,0 +1,123 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.certs {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+
+  @include respond(md) {
+    min-height: auto;
+    padding: 64px 0;
+  }
+}
+
+.certsInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.certsLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.certsHeading {
+  font-size: clamp(40px, 5vw, 72px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: $color-primary;
+}
+
+.certsDesc {
+  font-size: 17px;
+  line-height: 1.65;
+  color: $color-primary;
+  opacity: 0.65;
+}
+
+.certsStack {
+  position: relative;
+  height: 500px;
+
+  @include respond(md) {
+    position: static;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 24px;
+  }
+}
+
+.certCard {
+  position: absolute;
+  width: 55%;
+  aspect-ratio: 3 / 4;
+  border-radius: 8px;
+  overflow: hidden;
+  background: $color-secondary;
+  box-shadow: 0 8px 32px rgba($color-primary, 0.12);
+  top: 50%;
+  left: 50%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &:nth-child(1) {
+    z-index: 1;
+    transform: translate(calc(-50% - 55px), calc(-50% - 12px)) rotate(-10deg);
+  }
+
+  &:nth-child(2) {
+    z-index: 2;
+    transform: translate(calc(-50% - 28px), calc(-50% - 6px)) rotate(-5deg);
+  }
+
+  &:nth-child(3) {
+    z-index: 3;
+    transform: translate(-50%, -50%) rotate(-1deg);
+  }
+
+  &:nth-child(4) {
+    z-index: 4;
+    transform: translate(calc(-50% + 28px), calc(-50% + 6px)) rotate(3deg);
+  }
+
+  @include respond(md) {
+    position: relative;
+    width: 76%;
+    max-height: 260px;
+    aspect-ratio: unset;
+    top: auto;
+    left: auto;
+    transform: none;
+
+    img {
+      object-position: top;
+    }
+
+    & + & {
+      margin-top: -44px;
+    }
+
+    &:nth-child(1) { transform: translateX(-20px) rotate(-2deg);  z-index: 1; }
+    &:nth-child(2) { transform: translateX(20px)  rotate(1.5deg); z-index: 2; }
+    &:nth-child(3) { transform: translateX(-20px) rotate(-1deg);  z-index: 3; }
+    &:nth-child(4) { transform: translateX(20px)  rotate(2deg);   z-index: 4; }
+  }
+}

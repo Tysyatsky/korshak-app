@@ -1,0 +1,129 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.servicesPreview {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+
+  @include respond(md) {
+    min-height: auto;
+    padding: 64px 0;
+  }
+}
+
+.servicesPrevInner {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 80px;
+  align-items: start;
+
+  @include respond(lg) {
+    grid-template-columns: 1fr 1.5fr;
+    gap: 60px;
+  }
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.sectionTitle {
+  font-size: clamp(36px, 5vw, 81px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $color-primary;
+}
+
+.servicesLeft {
+  position: sticky;
+  top: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include respond(md) {
+    position: static;
+  }
+}
+
+.servicesDisclaimer {
+  font-size: 14px;
+  line-height: 1.5;
+  color: $color-primary;
+  opacity: 0.6;
+}
+
+.servicesRight {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.servicesList {
+  display: flex;
+  flex-direction: column;
+}
+
+.serviceRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba($color-primary, 0.15);
+
+  &:first-child {
+    border-top: 1px solid rgba($color-primary, 0.15);
+  }
+}
+
+.serviceTop {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.serviceName {
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 500;
+  color: $color-primary;
+  line-height: 1.2;
+}
+
+.serviceNote {
+  font-size: 14px;
+  color: $color-primary;
+  opacity: 0.6;
+}
+
+.serviceBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.servicePrep {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 15px;
+  color: $color-primary;
+  opacity: 0.75;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.servicePrice {
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 400;
+  color: $color-primary;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: auto;
+}

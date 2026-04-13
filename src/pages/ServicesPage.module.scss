@@ -28,12 +28,12 @@
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1;
-  color: $color-dark;
+  color: $color-primary;
 }
 
 .subtitle {
   font-size: 16px;
-  color: $color-gray;
+  color: rgba($color-primary, 0.5);
 }
 
 .layout {
@@ -52,7 +52,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  //gap: 2px;
   position: sticky;
   top: 88px;
 
@@ -67,36 +67,44 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  //gap: 8px;
   padding: 14px 16px;
-  border-radius: 6px;
+  //border-radius: 6px;
+  border: 1px solid $color-primary;
   font-size: 16px;
-  font-weight: 400;
-  color: $color-dark;
+  //font-weight: 400;
+  color: $color-primary;
   text-align: left;
   background: transparent;
   transition: background 0.2s, color 0.2s;
   cursor: pointer;
 
-  &:hover {
+  &:not(.catActive):hover {
     background: $color-secondary;
     color: $color-primary;
+
+    .catArrow {
+      color: $color-primary;
+    }
   }
 }
 
 .catActive {
-  background: $color-secondary;
-  color: $color-primary;
+  background: $color-primary;
+  color: $color-white;
   font-weight: 500;
 
   .catArrow {
-    color: $color-primary;
+    color: $color-white;
+    transform: rotate(0deg);
   }
 }
 
 .catArrow {
   color: $color-gray-light;
   flex-shrink: 0;
+  transform: rotate(90deg);
+  transition: transform 0.2s, color 0.2s;
 }
 
 // ── Content ───────────────────────────────────────────────────────────────────
@@ -139,58 +147,4 @@
   padding: 40px 0;
   font-size: 18px;
   color: $color-gray;
-}
-
-.serviceRow {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 32px;
-  padding: 24px 0;
-  border-bottom: 1px solid rgba($color-primary, 0.08);
-
-  @include respond(md) {
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-
-.serviceInfo {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.serviceName {
-  font-size: 20px;
-  font-weight: 500;
-  color: $color-dark;
-  line-height: 28px;
-}
-
-.serviceNote {
-  font-size: 14px;
-  color: $color-gray;
-}
-
-.servicePrep {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 13px;
-  color: $color-gray-light;
-
-  svg {
-    flex-shrink: 0;
-    color: $color-gray-light;
-  }
-}
-
-.servicePrice {
-  font-size: 20px;
-  font-weight: 500;
-  color: $color-primary;
-  white-space: nowrap;
-  flex-shrink: 0;
-  padding-top: 2px;
 }

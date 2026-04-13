@@ -1,0 +1,86 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.aboutSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+
+  @include respond(md) {
+    min-height: auto;
+    padding: 64px 0;
+  }
+}
+
+.aboutSectionInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+.aboutSectionLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.aboutSectionHeading {
+  font-size: clamp(56px, 6vw, 88px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $color-primary;
+}
+
+.aboutSectionText {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: $color-primary;
+}
+
+.aboutSectionRight {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.aboutStatsList {
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutStatItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 20px 0;
+  border-top: 1px solid rgba($color-primary, 0.15);
+
+  &:last-child {
+    border-bottom: 1px solid rgba($color-primary, 0.15);
+  }
+}
+
+.aboutStatValue {
+  font-size: clamp(48px, 5.5vw, 72px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: $color-primary;
+}
+
+.aboutStatLabel {
+  font-size: 15px;
+  color: $color-primary;
+  opacity: 0.6;
+}

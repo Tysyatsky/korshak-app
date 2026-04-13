@@ -1,0 +1,146 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.cta {
+  background: $color-primary;
+  overflow: hidden;
+  position: relative;
+}
+
+.ctaLines {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 240px;
+  height: 240px;
+  pointer-events: none;
+}
+
+.ctaInner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 32% 1fr;
+  grid-template-areas:
+    "left  photo  right"
+    "note  photo  right";
+
+  @include respond(md) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.ctaLeft {
+  grid-area: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 64px 48px 40px 0;
+  color: $color-white;
+
+  h2 {
+    font-size: clamp(32px, 3.5vw, 56px);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+
+  @include respond(md) {
+    padding: 48px 0 32px;
+    gap: 20px;
+
+    h2 {
+      font-size: 52px;
+    }
+
+    p {
+      font-size: 22px;
+    }
+  }
+}
+
+.ctaPhoto {
+  grid-area: photo;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  @include respond(md) {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 72%;
+      height: auto;
+    }
+  }
+}
+
+.ctaNote {
+  grid-area: note;
+  padding: 0 48px 56px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: $color-white;
+  opacity: 0.6;
+  align-self: end;
+
+  @include respond(md) {
+    padding: 32px 0 0;
+    font-size: 18px;
+    align-self: auto;
+  }
+}
+
+.ctaRight {
+  grid-area: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 40px 0 56px 48px;
+  color: $color-white;
+
+  @include respond(md) {
+    padding: 32px 0 56px;
+    justify-content: flex-start;
+  }
+}
+
+.ctaHours {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+  line-height: 1.4;
+
+  @include respond(md) {
+    font-size: 22px;
+  }
+}
+
+.ctaPhone {
+  font-size: clamp(28px, 3vw, 44px);
+  font-weight: 500;
+  color: $color-white;
+  line-height: 1.1;
+
+  @include respond(md) {
+    font-size: 44px;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

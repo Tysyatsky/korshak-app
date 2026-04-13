@@ -7,65 +7,80 @@
   border-top: 1px solid rgba($color-primary, 0.08);
   overflow: hidden;
   padding-bottom: 0;
+  margin-top: 120px;
+
+  @include respond(md) {
+    margin-top: 80px;
+  }
 }
 
 .inner {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding-top: 48px;
+  padding-top: 64px;
   padding-bottom: 48px;
-  gap: 40px;
+  gap: 80px;
   position: relative;
   z-index: 1;
 
   @include respond(md) {
     flex-direction: column;
     gap: 32px;
+    padding-top: 48px;
   }
 }
 
 .left {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0;
 }
 
 .logo {
-  font-size: 20px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  color: $color-primary;
-  margin-bottom: 16px;
+  letter-spacing: 0.12em;
+  color: rgba($color-primary, 0.35);
+  margin-bottom: 20px;
+  text-decoration: none;
 }
 
 .hours {
-  font-size: 18px;
-  line-height: 28px;
-  color: $color-dark;
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: $color-primary;
 }
 
 .phone {
-  font-size: 18px;
-  color: $color-dark;
+  font-size: clamp(36px, 4vw, 56px);
   font-weight: 500;
+  letter-spacing: -0.02em;
+  color: $color-primary;
+  text-decoration: none;
+  display: block;
+  margin-top: 2px;
 
   &:hover {
-    color: $color-primary;
+    opacity: 0.7;
   }
 }
 
 .copy {
   font-size: 14px;
   color: $color-gray;
-  margin-top: 8px;
+  margin-top: 28px;
 }
 
 .right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 24px;
+  gap: 32px;
+  padding-top: 4px;
+  flex-shrink: 0;
 
   @include respond(md) {
     align-items: flex-start;
@@ -86,6 +101,7 @@
 .link {
   font-size: 18px;
   color: $color-dark;
+  text-decoration: none;
 
   &:hover {
     color: $color-primary;
@@ -110,14 +126,16 @@
 }
 
 .watermark {
-  font-size: clamp(80px, 14vw, 200px);
+  font-size: 20vw;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   color: rgba($color-primary, 0.06);
   line-height: 1;
   text-align: center;
   width: 100%;
   padding: 0;
   user-select: none;
-  margin-top: -40px;
+  margin-top: -0.1em;
+  white-space: nowrap;
+  overflow: hidden;
 }

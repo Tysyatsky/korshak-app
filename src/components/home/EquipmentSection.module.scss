@@ -1,0 +1,86 @@
+@use "../../styles/variables" as *;
+@use "../../styles/mixins" as *;
+
+.equipment {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+
+  @include respond(md) {
+    min-height: auto;
+    padding: 56px 0;
+  }
+}
+
+.equipmentInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+
+  @include respond(md) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.equipmentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.equipmentTitle {
+  color: $color-primary;
+}
+
+.equipmentDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 17px;
+  line-height: 1.65;
+  color: $color-primary;
+  opacity: 0.75;
+}
+
+.equipmentImageWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+
+  img {
+    width: 65%;
+    object-fit: contain;
+  }
+}
+
+.callout {
+  position: absolute;
+  font-size: 14px;
+  line-height: 1.4;
+  color: $color-primary;
+  max-width: 160px;
+  border-bottom: 1px solid $color-primary;
+  padding-bottom: 4px;
+}
+
+.calloutA {
+  top: 20%;
+  right: 0;
+  text-align: right;
+}
+
+.calloutB {
+  top: 48%;
+  left: 0;
+}
+
+.calloutC {
+  bottom: 22%;
+  right: 0;
+  text-align: right;
+}
