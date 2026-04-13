@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
    push:
       branches:
-         - main  # Runs when pushing to main
+         - master
 
 permissions:
    contents: write  # Ensure GitHub Actions can push to gh-pages
