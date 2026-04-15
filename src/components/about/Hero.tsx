@@ -12,7 +12,7 @@ const Hero = () => {
         </Title>
         <Stack className={styles.colLeft} justify="flex-end" gap={0}>
           <Text className={styles.description}>
-            Швидка та точна ультразвукова діагностика судин. Передове, якісне обладнання, надійні результати — і впевненість у вашому здоров'ї
+            Швидка та точна ультразвукова діагностика. Передове, якісне обладнання, надійні результати — і впевненість у вашому здоров'ї
           </Text>
         </Stack>
 
@@ -35,9 +35,11 @@ const Hero = () => {
           </Stack>
 
           <Stack gap={2}>
+            <Text className={styles.contactHours}>Години роботи</Text>
             <Text className={styles.contactHours}>пн — пт</Text>
             <Text className={styles.contactHours}>9:00 – 15:00</Text>
             <Anchor href="tel:+380988138942" className={styles.contactPhone} underline="never">
+              Телефон для запису
               +38 098 813 89 42
             </Anchor>
           </Stack>

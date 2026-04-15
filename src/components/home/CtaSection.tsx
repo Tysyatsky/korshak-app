@@ -23,7 +23,7 @@ export default function CtaSection() {
 
       <div className={`container ${styles.ctaInner}`}>
         <div className={styles.ctaLeft}>
-          <h2>Запис на УЗД судин за телефоном</h2>
+          <h2>Запис на УЗД за телефоном</h2>
           <p>Жодних форм та очікувань — просто телефонуйте, щоб узгодити час і бути впевненими, що все під контролем</p>
         </div>
 
