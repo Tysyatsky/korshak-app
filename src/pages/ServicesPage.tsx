@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import ServiceRow from '../components/services/ServiceRow';
@@ -9,6 +9,9 @@ import '../styles/global.scss';
 const ServicesPage = () => {
   const [activeCategory, setActiveCategory] = useState('abdomen');
   const [search, setSearch] = useState('');
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [activeCategory]);
 
   const current = categories.find((c) => c.id === activeCategory)!;
 
