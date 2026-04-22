@@ -51,10 +51,9 @@
 }
 
 .servicesDisclaimer {
-  font-size: 14px;
+  font-size: clamp(14px, 1.2vw, 18px);
   line-height: 1.5;
   color: $color-primary;
-  opacity: 0.6;
 }
 
 .servicesRight {
@@ -94,9 +93,8 @@
 }
 
 .serviceNote {
-  font-size: 14px;
+  font-size: clamp(14px, 1.2vw, 18px);
   color: $color-primary;
-  opacity: 0.6;
 }
 
 .serviceBottom {
@@ -110,9 +108,8 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 15px;
+  font-size: clamp(14px, 1.1vw, 17px);
   color: $color-primary;
-  opacity: 0.75;
 
   svg {
     flex-shrink: 0;

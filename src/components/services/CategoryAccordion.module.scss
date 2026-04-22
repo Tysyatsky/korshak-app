@@ -1,0 +1,65 @@
+@use "../../styles/variables" as *;
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.item {
+  & + & {
+    margin-top: -1px;
+  }
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid $color-primary;
+  background: transparent;
+  font-size: clamp(16px, 1.4vw, 20px);
+  font-family: inherit;
+  font-weight: 500;
+  color: $color-primary;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.headerOpen {
+  background: $color-primary;
+  color: $color-white;
+}
+
+.chevron {
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.bodyOpen {
+  grid-template-rows: 1fr;
+}
+
+.bodyInner {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+}
+
+.row {
+  border-bottom: 1px solid rgba($color-primary, 0.12);
+}

@@ -32,7 +32,7 @@
 }
 
 .aboutSectionHeading {
-  font-size: clamp(56px, 6vw, 88px);
+  font-size: clamp(56px, 7vw, 104px);
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -43,7 +43,7 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  font-size: 17px;
+  font-size: clamp(17px, 1.5vw, 22px);
   line-height: 1.65;
   color: $color-primary;
 }
@@ -72,7 +72,7 @@
 }
 
 .aboutStatValue {
-  font-size: clamp(48px, 5.5vw, 72px);
+  font-size: clamp(52px, 6vw, 88px);
   font-weight: 500;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -80,7 +80,6 @@
 }
 
 .aboutStatLabel {
-  font-size: 15px;
+  font-size: clamp(15px, 1.2vw, 19px);
   color: $color-primary;
-  opacity: 0.6;
 }

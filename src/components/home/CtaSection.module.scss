@@ -39,15 +39,14 @@
   color: $color-white;
 
   h2 {
-    font-size: clamp(32px, 3.5vw, 56px);
+    font-size: clamp(40px, 5vw, 80px);
     line-height: 1.1;
     letter-spacing: -0.03em;
   }
 
   p {
-    font-size: 18px;
+    font-size: clamp(18px, 1.6vw, 24px);
     line-height: 1.6;
-    opacity: 0.8;
   }
 
   @include respond(md) {
@@ -55,11 +54,11 @@
     gap: 20px;
 
     h2 {
-      font-size: 52px;
+      font-size: clamp(40px, 10vw, 56px);
     }
 
     p {
-      font-size: 22px;
+      font-size: clamp(18px, 5vw, 22px);
     }
   }
 }
@@ -87,15 +86,14 @@
 .ctaNote {
   grid-area: note;
   padding: 0 48px 56px 0;
-  font-size: 14px;
+  font-size: clamp(17px, 1.5vw, 22px);
   line-height: 1.5;
   color: $color-white;
-  opacity: 0.6;
   align-self: end;
 
   @include respond(md) {
     padding: 32px 0 0;
-    font-size: 18px;
+    font-size: clamp(16px, 4vw, 18px);
     align-self: auto;
   }
 }
@@ -106,7 +104,7 @@
   flex-direction: column;
   justify-content: flex-end;
   gap: 4px;
-  padding: 40px 0 56px 48px;
+  padding: 40px 0 56px 24px;
   color: $color-white;
 
   @include respond(md) {
@@ -118,22 +116,22 @@
 .ctaHours {
   display: flex;
   flex-direction: column;
-  font-size: 16px;
+  font-size: clamp(16px, 1.5vw, 22px);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  opacity: 0.8;
   line-height: 1.4;
 
   @include respond(md) {
-    font-size: 22px;
+    font-size: clamp(18px, 5vw, 22px);
   }
 }
 
 .ctaPhone {
-  font-size: clamp(28px, 3vw, 44px);
+  font-size: clamp(32px, 4.5vw, 64px);
   font-weight: 500;
   color: $color-white;
+  white-space: nowrap;
   line-height: 1.1;
 
   @include respond(md) {

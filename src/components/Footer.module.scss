@@ -17,7 +17,7 @@
 .inner {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: stretch;
   padding-top: 64px;
   padding-bottom: 48px;
   gap: 80px;
@@ -37,15 +37,6 @@
   gap: 0;
 }
 
-.logo {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: rgba($color-primary, 0.35);
-  margin-bottom: 20px;
-  text-decoration: none;
-}
-
 .hours {
   font-size: clamp(40px, 4.5vw, 64px);
   font-weight: 500;
@@ -55,7 +46,7 @@
 }
 
 .phone {
-  font-size: clamp(36px, 4vw, 56px);
+  font-size: clamp(40px, 4.5vw, 64px);
   font-weight: 500;
   letter-spacing: -0.02em;
   color: $color-primary;
@@ -70,7 +61,7 @@
 
 .copy {
   font-size: 14px;
-  color: $color-gray;
+  color: rgba($color-primary, 0.45);
   margin-top: 28px;
 }
 
@@ -78,8 +69,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 32px;
-  padding-top: 4px;
+  justify-content: space-between;
   flex-shrink: 0;
 
   @include respond(md) {
@@ -100,11 +90,11 @@
 
 .link {
   font-size: 18px;
-  color: $color-dark;
+  color: $color-primary;
   text-decoration: none;
 
   &:hover {
-    color: $color-primary;
+    opacity: 0.7;
   }
 }
 
@@ -114,28 +104,22 @@
   align-items: flex-end;
   gap: 4px;
   font-size: 14px;
-  color: $color-gray;
+  color: rgba($color-primary, 0.45);
 
   @include respond(md) {
     align-items: flex-start;
   }
 
   span {
-    color: $color-dark;
+    color: $color-primary;
   }
 }
 
 .watermark {
-  font-size: 20vw;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: rgba($color-primary, 0.06);
-  line-height: 1;
-  text-align: center;
+  display: block;
   width: 100%;
-  padding: 0;
+  height: auto;
   user-select: none;
-  margin-top: -0.1em;
-  white-space: nowrap;
-  overflow: hidden;
+  margin-top: 16px;
+  opacity: 0.1;
 }

@@ -1,7 +1,5 @@
-import { Link } from 'react-router';
 import { stats } from '../../data/home';
 import styles from './AboutSection.module.scss';
-import btn from '../../styles/buttons.module.scss';
 
 export default function AboutSection() {
   return (
@@ -27,9 +25,6 @@ export default function AboutSection() {
               </div>
             ))}
           </div>
-          <Link to="/pro-mene" className={btn.btnOutline}>
-            Більше про мене&nbsp;&nbsp;→
-          </Link>
         </div>
       </div>
     </section>

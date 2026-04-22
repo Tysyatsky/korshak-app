@@ -32,10 +32,11 @@
 }
 
 .subtitle {
-  font-size: 16px;
-  color: rgba($color-primary, 0.5);
+  font-size: clamp(16px, 1.4vw, 20px);
+  color: $color-primary;
 }
 
+// ── Desktop layout ────────────────────────────────────────────────────────────
 .layout {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -43,36 +44,25 @@
   align-items: start;
 
   @include respond(md) {
-    grid-template-columns: 1fr;
-    gap: 32px;
+    display: none;
   }
 }
 
-// ── Sidebar ──────────────────────────────────────────────────────────────────
+// ── Sidebar (desktop only) ────────────────────────────────────────────────────
 .sidebar {
   display: flex;
   flex-direction: column;
-  //gap: 2px;
   position: sticky;
   top: 88px;
-
-  @include respond(md) {
-    position: static;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 .catBtn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  //gap: 8px;
   padding: 14px 16px;
-  //border-radius: 6px;
   border: 1px solid $color-primary;
-  font-size: 16px;
-  //font-weight: 400;
+  font-size: clamp(16px, 1.4vw, 20px);
   color: $color-primary;
   text-align: left;
   background: transparent;
@@ -128,7 +118,7 @@
   flex: 1;
   border: none;
   background: transparent;
-  font-size: 18px;
+  font-size: clamp(16px, 1.3vw, 20px);
   font-family: inherit;
   color: $color-dark;
   outline: none;
@@ -145,6 +135,17 @@
 
 .noResults {
   padding: 40px 0;
-  font-size: 18px;
+  font-size: clamp(16px, 1.4vw, 20px);
   color: $color-gray;
+}
+
+// ── Mobile / tablet accordion ─────────────────────────────────────────────────
+.mobileLayout {
+  display: none;
+
+  @include respond(md) {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
 }

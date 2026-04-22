@@ -41,7 +41,7 @@
 }
 
 .certsDesc {
-  font-size: 17px;
+  font-size: clamp(16px, 1.3vw, 20px);
   line-height: 1.65;
   color: $color-primary;
   opacity: 0.65;

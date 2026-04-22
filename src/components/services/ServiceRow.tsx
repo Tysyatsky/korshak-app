@@ -3,10 +3,11 @@ import styles from './ServiceRow.module.scss';
 
 interface Props {
   service: Service;
+  className?: string;
 }
 
-const ServiceRow = ({ service }: Props) => (
-  <div className={styles.row}>
+const ServiceRow = ({ service, className }: Props) => (
+  <div className={`${styles.row}${className ? ` ${className}` : ''}`}>
     <div className={styles.info}>
       <span className={styles.name}>{service.name}</span>
       {service.note && <span className={styles.note}>{service.note}</span>}

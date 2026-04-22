@@ -6,7 +6,6 @@ import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import HomePage from "./pages/HomePage";
 import ServicesPage from "./pages/ServicesPage";
-import AboutPage from "./pages/AboutPage";
 import ContactsPage from "./pages/ContactsPage";
 
 function Layout() {
@@ -24,7 +23,6 @@ const router = createBrowserRouter([
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/posluhy", element: <ServicesPage /> },
-      { path: "/pro-mene", element: <AboutPage /> },
       { path: "/kontakty", element: <ContactsPage /> },
     ],
   },

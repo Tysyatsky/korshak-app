@@ -1,16 +1,18 @@
 @use "../styles/variables" as *;
+@use "../styles/mixins" as *;
 
 .navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
   background: $bg-body;
-  border-bottom: 1px solid rgba($color-primary, 0.08);
+  border-bottom: 1px solid $color-primary;
 }
 
 .inner {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 72px;
 }
 
@@ -18,4 +20,141 @@
   display: flex;
   align-items: center;
   text-decoration: none;
+  flex-shrink: 0;
+}
+
+// ── Desktop nav ───────────────────────────────────────────────────────────────
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @include respond(md) {
+    display: none;
+  }
+}
+
+.navLink {
+  font-size: 20px;
+  font-weight: 500;
+  color: $color-primary;
+  text-decoration: none;
+  padding: 8px 20px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+
+  &:hover {
+    border-color: $color-primary;
+  }
+}
+
+.navLinkActive {
+  background: $color-primary;
+  color: $color-white;
+  border-color: $color-primary;
+
+  &:hover {
+    border-color: $color-primary;
+  }
+}
+
+// ── Burger ────────────────────────────────────────────────────────────────────
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  @include respond(md) {
+    display: flex;
+  }
+
+  span {
+    display: block;
+    height: 2px;
+    background: $color-primary;
+    transform-origin: center;
+    transition: transform 0.25s ease, opacity 0.25s ease, width 0.25s ease;
+
+    &:nth-child(1) { width: 100%; }
+    &:nth-child(2) { width: 75%; }
+    &:nth-child(3) { width: 50%; }
+  }
+}
+
+.burgerOpen span {
+  &:nth-child(1) {
+    width: 100%;
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  &:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+
+  &:nth-child(3) {
+    width: 100%;
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+// ── Mobile menu ───────────────────────────────────────────────────────────────
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: $bg-body;
+  border-top: 1px solid $color-primary;
+  padding: 48px 40px;
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  pointer-events: none;
+
+  @include respond(md) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.mobileMenuOpen {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobileNavLink {
+  font-size: clamp(40px, 10vw, 64px);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: rgba($color-primary, 0.3);
+  text-decoration: none;
+  line-height: 1.15;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.mobileNavLinkActive {
+  color: $color-primary;
 }

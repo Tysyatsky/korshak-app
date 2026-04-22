@@ -39,11 +39,13 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
           <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </button>
-      {open && (
-        <div className={styles.faqAnswer}>
-          {answer.split('\n\n').map((p, i) => <p key={i}>{p}</p>)}
+      <div className={`${styles.faqAnswer} ${open ? styles.faqAnswerOpen : ''}`}>
+        <div className={styles.faqAnswerInner}>
+          <div className={styles.faqAnswerContent}>
+            {answer.split('\n\n').map((p, i) => <p key={i}>{p}</p>)}
+          </div>
         </div>
-      )}
+      </div>
     </div>
   );
 }

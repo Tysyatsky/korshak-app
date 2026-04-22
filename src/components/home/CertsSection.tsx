@@ -1,6 +1,4 @@
-import { Link } from 'react-router';
 import styles from './CertsSection.module.scss';
-import btn from '../../styles/buttons.module.scss';
 import { asset } from '../../utils/asset';
 
 export default function CertsSection() {
@@ -10,7 +8,6 @@ export default function CertsSection() {
         <div className={styles.certsLeft}>
           <h2 className={styles.certsHeading}>Сертифікати — показники розвитку і відданості медицині</h2>
           <p className={styles.certsDesc}>Від самого початку своєї практики і дотепер, я завжди інвестую у знання й нові методики, щоб кожен ваш прийом був максимально точним</p>
-          <Link to="/pro-mene" className={btn.btnOutline}>15+ інших сертифікатів&nbsp;&nbsp;→</Link>
         </div>
         <div className={styles.certsStack}>
           {[1, 6, 9, 12].map((n) => (
