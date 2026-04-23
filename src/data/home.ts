@@ -6,13 +6,13 @@ export const stats = [
 ];
 
 export const services = [
-  { name: 'УЗД органів черевної порожнини', note: 'Печінки, жовчного міхура, підшлункової залози, селезінки', preparation: 'Проводиться натще', price: 500 },
-  { name: 'УЗД нирок і нижньої третини сечоводів', note: null, preparation: 'Проводиться при наповненому сечовому міхурі', price: 450 },
-  { name: 'УЗД наднирників', note: null, preparation: null, price: 400 },
-  { name: 'УЗД органів черевної порожнини та нирок', note: null, preparation: 'Проводиться натще', price: 600 },
-  { name: 'УЗД органів малого тазу у чоловіків', note: null, preparation: 'Проводиться при наповненому сечовому міхурі', price: 400 },
-  { name: 'УЗД щитоподібної залози', note: null, preparation: null, price: 400 },
-  { name: 'УЗД молочних залоз', note: null, preparation: null, price: 500 },
+  { name: 'УЗД органів черевної порожнини', note: 'Печінки, жовчного міхура, підшлункової залози, селезінки', prep: 'Проводиться натще', price: 500 },
+  { name: 'УЗД органів черевної порожнини та нирок', note: null, prep: 'Проводиться натще', price: 600 },
+  { name: 'УЗД щитоподібної залози', note: null, prep: null, price: 400 },
+  { name: 'УЗД судин шиї та голови (екстракраніальний відділ)', note: null, prep: 'Проводиться натще', price: 600 },
+  { name: 'УЗД судин (вен та артерій) нижніх (або верхніх) кінцівок', note: null, prep: null, price: 800 },
+  { name: 'УЗД вен обох нижніх (або верхніх) кінцівок', note: null, prep: null, price: 650 },
+  { name: 'УЗД артерій обох нижніх (або верхніх) кінцівок', note: null, prep: null, price: 650 },
 ];
 
 export const reviews = [
