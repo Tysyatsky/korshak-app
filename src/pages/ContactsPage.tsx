@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import BackToHome from '../components/BackToHome';
 import styles from './ContactsPage.module.scss';
 import { MAP_LINK, MAP_EMBED } from '../data/config';
 import { asset } from '../utils/asset';
@@ -54,6 +55,7 @@ function ContactsPage() {
   return (
     <div className={styles.page}>
       <Navbar />
+      <BackToHome />
 
       {/* Address */}
       <section className={styles.address}>

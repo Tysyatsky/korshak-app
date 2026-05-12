@@ -7,6 +7,7 @@ import '@mantine/carousel/styles.css';
 import HomePage from "./pages/HomePage";
 import ServicesPage from "./pages/ServicesPage";
 import ContactsPage from "./pages/ContactsPage";
+import LoginPage from "./pages/LoginPage";
 
 function Layout() {
   return (
@@ -24,9 +25,22 @@ const router = createBrowserRouter([
       { path: "/", element: <HomePage /> },
       { path: "/posluhy", element: <ServicesPage /> },
       { path: "/kontakty", element: <ContactsPage /> },
+      { path: "/login", element: <LoginPage /> },
     ],
   },
 ], { basename: import.meta.env.BASE_URL });
+
+declare global {
+  interface Window { gtag: (...args: unknown[]) => void; }
+}
+
+router.subscribe((state) => {
+  if (typeof window.gtag === 'function') {
+    window.gtag('event', 'page_view', {
+      page_path: state.location.pathname,
+    });
+  }
+});
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

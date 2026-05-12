@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import BackToHome from '../components/BackToHome';
 import ServiceRow from '../components/services/ServiceRow';
 import CategoryAccordion from '../components/services/CategoryAccordion';
 import { categories } from '../data/services';
@@ -26,6 +27,7 @@ const [search, setSearch] = useState('');
   return (
     <div className={styles.page}>
       <Navbar />
+      <BackToHome />
 
       <main className={styles.main}>
         <div className="container">

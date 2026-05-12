@@ -8,6 +8,11 @@ const NAV_LINKS = [
   { to: '/kontakty', label: 'Контакти' },
 ];
 
+const MOBILE_NAV_LINKS = [
+  { to: '/', label: 'Головна' },
+  ...NAV_LINKS,
+];
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -51,7 +56,7 @@ function Navbar() {
       {/* Mobile / tablet menu */}
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ''}`}>
         <nav className={styles.mobileNav}>
-          {NAV_LINKS.map(({ to, label }) => (
+          {MOBILE_NAV_LINKS.map(({ to, label }) => (
             <NavLink
               key={to}
               to={to}
