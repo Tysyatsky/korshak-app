@@ -49,7 +49,6 @@ export const categories: Category[] = [
     services: [
       { name: 'УЗД пухлиноподібних (обʼємних) утворів з кольоровою доплерографією', note: null, prep: null, price: 400 },
       { name: 'УЗД мʼязово-звязкових структур суглоба', note: null, prep: null, price: 500 },
-      { name: 'УЗД мʼязово-звязкових структур 2 суглобів', note: null, prep: null, price: 700 },
     ],
   },
   {

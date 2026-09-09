@@ -10,7 +10,7 @@ export default function ServicesPreview({ sectionRef }: { sectionRef: RefObject<
       <div className={`container ${styles.servicesPrevInner}`}>
         <div className={styles.servicesLeft}>
           <h2 className={styles.sectionTitle}>Послуги</h2>
-          <p className={styles.servicesDisclaimer}>Усі ціни та послуги актуальні станом на квітень 2026 року</p>
+          <p className={styles.servicesDisclaimer}>Усі ціни та послуги актуальні станом на вересень 2026 року</p>
         </div>
         <div className={styles.servicesRight}>
           <div className={styles.servicesList}>
