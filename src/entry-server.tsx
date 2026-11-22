@@ -4,6 +4,7 @@ import { renderToString } from 'react-dom/server';
 import { createStaticHandler, createStaticRouter, StaticRouterProvider } from 'react-router';
 import { MantineProvider } from '@mantine/core';
 import { routes } from './routes';
+import { LanguageProvider } from './i18n/LanguageProvider';
 
 export { pageMeta, canonicalUrl } from './data/seo';
 export { structuredData } from './data/structuredData';
@@ -20,9 +21,11 @@ export async function render(path: string): Promise<string> {
 
   return renderToString(
     <StrictMode>
-      <MantineProvider>
-        <StaticRouterProvider router={router} context={context} />
-      </MantineProvider>
+      <LanguageProvider initialLang="uk">
+        <MantineProvider>
+          <StaticRouterProvider router={router} context={context} />
+        </MantineProvider>
+      </LanguageProvider>
     </StrictMode>,
   );
 }

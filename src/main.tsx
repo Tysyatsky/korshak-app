@@ -5,7 +5,11 @@ import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
 import { routes } from './routes';
-import { pageMeta, canonicalUrl, normalizePath } from './data/seo';
+import { pageMeta, normalizePath } from './data/seo';
+import { detectLanguage } from './i18n/detect';
+import { LanguageProvider } from './i18n/LanguageProvider';
+import { applyDocumentMeta } from './i18n/documentMeta';
+import type { Lang } from './i18n/types';
 
 const router = createBrowserRouter(routes, { basename: import.meta.env.BASE_URL });
 
@@ -13,21 +17,15 @@ declare global {
   interface Window { gtag: (...args: unknown[]) => void; }
 }
 
-// Keep title, description and canonical in sync on client-side navigation
-function applyPageMeta(pathname: string) {
-  const meta = pageMeta[normalizePath(pathname)];
-  if (!meta) return;
-  document.title = meta.title;
-  document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
-  document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl(pathname));
-}
+const initialLang = detectLanguage();
 
 let lastPath = router.state.location.pathname;
 router.subscribe((state) => {
   const path = state.location.pathname;
   if (path === lastPath) return;
   lastPath = path;
-  applyPageMeta(path);
+  // Keep title, description and canonical in sync on client-side navigation
+  applyDocumentMeta(document.documentElement.lang as Lang, path);
   if (typeof window.gtag === 'function') {
     window.gtag('event', 'page_view', {
       page_path: path,
@@ -37,17 +35,20 @@ router.subscribe((state) => {
 
 const app = (
   <StrictMode>
-    <MantineProvider>
-      <RouterProvider router={router} />
-    </MantineProvider>
+    <LanguageProvider initialLang={initialLang}>
+      <MantineProvider>
+        <RouterProvider router={router} />
+      </MantineProvider>
+    </LanguageProvider>
   </StrictMode>
 );
 
 const rootEl = document.getElementById('root')!;
-// Pre-rendered pages already contain markup, so hydrate them. Other routes (dev, /login via 404.html)
-// render from scratch, discarding any fallback markup that belongs to a different page.
+// Pre-rendered pages contain Ukrainian markup, so hydrate them only when the page renders in Ukrainian.
+// Other routes (dev, /login via 404.html) and English visitors render from scratch,
+// discarding fallback markup that belongs to a different page or language.
 const isPrerendered = normalizePath(router.state.location.pathname) in pageMeta;
-if (rootEl.hasChildNodes() && isPrerendered) {
+if (rootEl.hasChildNodes() && isPrerendered && initialLang === 'uk') {
   hydrateRoot(rootEl, app);
 } else {
   rootEl.replaceChildren();

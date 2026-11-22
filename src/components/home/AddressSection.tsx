@@ -1,17 +1,21 @@
 import { MAP_EMBED } from '../../data/config';
+import { useT } from '../../i18n/context';
 import styles from './AddressSection.module.scss';
 
 export default function AddressSection() {
+  const { t } = useT();
+  const [street, hospital, building, room] = t.address.lines;
+
   return (
     <section className={styles.address}>
       <div className={`container ${styles.addressInner}`}>
         <div className={styles.addressLeft}>
           <div className={styles.addressContent}>
-            <h2 className={styles.addressHeading}>Адреса</h2>
+            <h2 className={styles.addressHeading}>{t.address.heading}</h2>
             <p className={styles.addressText}>
-              Рівне. вул. Карнаухова 25А,<br />
-              Центральна міська лікарня,<br />
-              терапевтичний корпус, 1 поверх, кабінет №121
+              {street}<br />
+              {hospital}<br />
+              {building} {room}
             </p>
           </div>
           <a
@@ -20,12 +24,12 @@ export default function AddressSection() {
             rel="noopener noreferrer"
             className={styles.addressBtn}
           >
-            Відкрити на мапі&nbsp;&nbsp;→
+            {t.address.openMap}&nbsp;&nbsp;→
           </a>
         </div>
         <div className={styles.addressMap}>
           <iframe
-            title="Адреса клініки"
+            title={t.address.mapTitle}
             src={MAP_EMBED}
             style={{ border: 0 }}
             loading="lazy"

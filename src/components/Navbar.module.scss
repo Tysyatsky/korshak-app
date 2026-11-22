@@ -23,6 +23,16 @@
   flex-shrink: 0;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+
+  @include respond(md) {
+    gap: 24px;
+  }
+}
+
 // ── Desktop nav ───────────────────────────────────────────────────────────────
 .desktopNav {
   display: flex;

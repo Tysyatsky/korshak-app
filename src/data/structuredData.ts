@@ -37,15 +37,15 @@ const priceCatalog = {
   name: 'Послуги УЗД-діагностики',
   itemListElement: categories.map((cat) => ({
     '@type': 'OfferCatalog',
-    name: cat.label,
+    name: cat.label.uk,
     itemListElement: cat.services.map((s) => ({
       '@type': 'Offer',
       price: s.price,
       priceCurrency: 'UAH',
       itemOffered: {
         '@type': 'Service',
-        name: s.name,
-        ...(s.note ? { description: s.note } : {}),
+        name: s.name.uk,
+        ...(s.note ? { description: s.note.uk } : {}),
       },
     })),
   })),
@@ -55,8 +55,8 @@ const faqPage = {
   '@type': 'FAQPage',
   mainEntity: faqs.map((f) => ({
     '@type': 'Question',
-    name: f.question,
-    acceptedAnswer: { '@type': 'Answer', text: f.answer.replace(/\n\n/g, ' ') },
+    name: f.question.uk,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer.uk.replace(/\n\n/g, ' ') },
   })),
 };
 

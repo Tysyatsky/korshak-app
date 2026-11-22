@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { faqs } from '../../data/home';
+import { useT } from '../../i18n/context';
 import styles from './FaqSection.module.scss';
 
 function FaqItem({ question, answer }: { question: string; answer: string }) {
@@ -21,16 +22,18 @@ function FaqItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export default function FaqSection() {
+  const { t, l } = useT();
+
   return (
     <section className={styles.faq}>
       <div className={`container ${styles.faqInner}`}>
         <div className={styles.faqHeader}>
-          <h2>Популярні питання</h2>
-          <p>Ваш спокій — завжди мій пріоритет. Тут ви знайдете відповіді на ваші потенційні питання</p>
+          <h2>{t.faq.heading}</h2>
+          <p>{t.faq.description}</p>
         </div>
         <div className={styles.faqList}>
           {faqs.map((f) => (
-            <FaqItem key={f.question} question={f.question} answer={f.answer} />
+            <FaqItem key={f.question.uk} question={l(f.question)} answer={l(f.answer)} />
           ))}
         </div>
       </div>

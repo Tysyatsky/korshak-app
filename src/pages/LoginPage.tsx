@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { useT } from '../i18n/context';
 import styles from './LoginPage.module.scss';
 import '../styles/global.scss';
 
@@ -13,6 +14,7 @@ const GoogleIcon = () => (
 );
 
 const LoginPage = () => {
+  const { t } = useT();
   const handleGoogleLogin = () => {
     console.log('OAuth: Google login triggered');
   };
@@ -25,25 +27,25 @@ const LoginPage = () => {
           <div className={styles.card}>
             <div className={styles.brand}>
               <span className={styles.brandDot} />
-              <span className={styles.brandName}>УЗД Коршак</span>
+              <span className={styles.brandName}>{t.login.brand}</span>
             </div>
 
             <div className={styles.heading}>
-              <h1 className="h3">Вхід до особистого кабінету</h1>
+              <h1 className="h3">{t.login.heading}</h1>
               <p className={`caption ${styles.sub}`}>
-                Увійдіть, щоб переглядати свої записи та результати обстежень
+                {t.login.description}
               </p>
             </div>
 
             <button className={styles.oauthBtn} onClick={handleGoogleLogin}>
               <GoogleIcon />
-              Увійти через Google
+              {t.login.google}
             </button>
 
             <p className={styles.privacy}>
-              Продовжуючи, ви погоджуєтесь з{' '}
+              {t.login.privacyPrefix}{' '}
               <a href="#" className={styles.privacyLink}>
-                політикою конфіденційності
+                {t.login.privacyLink}
               </a>
             </p>
           </div>

@@ -1,73 +1,87 @@
+import type { Localized } from '../i18n/types';
+
 export interface Service {
-  name: string;
-  note: string | null;
-  prep: string | null;
+  name: Localized;
+  note: Localized | null;
+  prep: Localized | null;
   price: number;
 }
 
 export interface Category {
   id: string;
-  label: string;
+  label: Localized;
   services: Service[];
 }
+
+export const PREP_FASTING: Localized = { uk: 'Проводиться натще', en: 'Done on an empty stomach' };
+export const PREP_FULL_BLADDER: Localized = { uk: 'Проводиться при наповненому сечовому міхурі', en: 'Done with a full bladder' };
+const PREP_FASTING_FULL_BLADDER: Localized = {
+  uk: 'Проводиться натще та при наповненому сечовому міхурі',
+  en: 'Done on an empty stomach and with a full bladder',
+};
+
+export const ABDOMEN_NOTE: Localized = {
+  uk: 'Печінки, жовчного міхура, підшлункової залози, селезінки',
+  en: 'Liver, gallbladder, pancreas, spleen',
+};
 
 export const categories: Category[] = [
   {
     id: 'abdomen',
-    label: 'Черевна порожнина та нирки',
+    label: { uk: 'Черевна порожнина та нирки', en: 'Abdomen and kidneys' },
     services: [
-      { name: 'УЗД органів черевної порожнини', note: 'Печінки, жовчного міхура, підшлункової залози, селезінки', prep: 'Проводиться натще', price: 500 },
-      { name: 'УЗД нирок', note: null, prep: null, price: 500 },
-      { name: 'УЗД нирок і нижньої третини сечоводів', note: null, prep: 'Проводиться при наповненому сечовому міхурі', price: 550 },
-      { name: 'УЗД наднирників', note: null, prep: null, price: 400 },
-      { name: 'УЗД органів черевної порожнини та нирок', note: null, prep: 'Проводиться натще', price: 600 },
-      { name: 'УЗД органів малого тазу', note: null, prep: 'Проводиться при наповненому сечовому міхурі', price: 500 },
-      { name: 'УЗД органів малого тазу та нирок', note: null, prep: 'Проводиться при наповненому сечовому міхурі', price: 600 },
-      { name: 'УЗД органів черевної порожнини, нирок та органів малого тазу', note: null, prep: 'Проводиться натще та при наповненому сечовому міхурі', price: 700 },
+      { name: { uk: 'УЗД органів черевної порожнини', en: 'Abdominal ultrasound' }, note: ABDOMEN_NOTE, prep: PREP_FASTING, price: 500 },
+      { name: { uk: 'УЗД нирок', en: 'Kidney ultrasound' }, note: null, prep: null, price: 500 },
+      { name: { uk: 'УЗД нирок і нижньої третини сечоводів', en: 'Ultrasound of the kidneys and lower third of the ureters' }, note: null, prep: PREP_FULL_BLADDER, price: 550 },
+      { name: { uk: 'УЗД наднирників', en: 'Adrenal ultrasound' }, note: null, prep: null, price: 400 },
+      { name: { uk: 'УЗД органів черевної порожнини та нирок', en: 'Abdominal and kidney ultrasound' }, note: null, prep: PREP_FASTING, price: 600 },
+      { name: { uk: 'УЗД органів малого тазу', en: 'Pelvic ultrasound' }, note: null, prep: PREP_FULL_BLADDER, price: 500 },
+      { name: { uk: 'УЗД органів малого тазу та нирок', en: 'Pelvic and kidney ultrasound' }, note: null, prep: PREP_FULL_BLADDER, price: 600 },
+      { name: { uk: 'УЗД органів черевної порожнини, нирок та органів малого тазу', en: 'Abdominal, kidney and pelvic ultrasound' }, note: null, prep: PREP_FASTING_FULL_BLADDER, price: 700 },
     ],
   },
   {
     id: 'thyroid',
-    label: 'Щитоподібна та молочні залози',
+    label: { uk: 'Щитоподібна та молочні залози', en: 'Thyroid and breasts' },
     services: [
-      { name: 'УЗД молочних залоз', note: null, prep: null, price: 500 },
-      { name: 'УЗД щитоподібної залози', note: null, prep: null, price: 400 },
-      { name: 'УЗД щитоподібної та прищитоподібних залоз', note: null, prep: null, price: 400 },
+      { name: { uk: 'УЗД молочних залоз', en: 'Breast ultrasound' }, note: null, prep: null, price: 500 },
+      { name: { uk: 'УЗД щитоподібної залози', en: 'Thyroid ultrasound' }, note: null, prep: null, price: 400 },
+      { name: { uk: 'УЗД щитоподібної та прищитоподібних залоз', en: 'Thyroid and parathyroid ultrasound' }, note: null, prep: null, price: 400 },
     ],
   },
   {
     id: 'chest',
-    label: 'Груди та лімфовузли',
+    label: { uk: 'Груди та лімфовузли', en: 'Chest and lymph nodes' },
     services: [
-      { name: 'УЗД плевральних синусів', note: null, prep: null, price: 400 },
-      { name: 'УЗД регіональних лімфатичних вузлів', note: null, prep: null, price: 400 },
+      { name: { uk: 'УЗД плевральних синусів', en: 'Pleural sinus ultrasound' }, note: null, prep: null, price: 400 },
+      { name: { uk: 'УЗД регіональних лімфатичних вузлів', en: 'Regional lymph node ultrasound' }, note: null, prep: null, price: 400 },
     ],
   },
   {
     id: 'tumors',
-    label: 'Обʼємні утвори та суглоби',
+    label: { uk: 'Обʼємні утвори та суглоби', en: 'Masses and joints' },
     services: [
-      { name: 'УЗД пухлиноподібних (обʼємних) утворів з кольоровою доплерографією', note: null, prep: null, price: 400 },
-      { name: 'УЗД мʼязово-звязкових структур суглоба', note: null, prep: null, price: 500 },
+      { name: { uk: 'УЗД пухлиноподібних (обʼємних) утворів з кольоровою доплерографією', en: 'Ultrasound of tumor-like masses with color Doppler' }, note: null, prep: null, price: 400 },
+      { name: { uk: 'УЗД мʼязово-звязкових структур суглоба', en: 'Ultrasound of joint muscles and ligaments' }, note: null, prep: null, price: 500 },
     ],
   },
   {
     id: 'vessels',
-    label: 'Судини (дуплексне сканування)',
+    label: { uk: 'Судини (дуплексне сканування)', en: 'Vessels (duplex scanning)' },
     services: [
-      { name: 'Дуплексне сканування судин шиї та голови (екстракраніальний відділ)', note: null, prep: 'Проводиться натще', price: 600 },
-      { name: 'Дуплексне сканування черевного відділу аорти', note: null, prep: 'Проводиться натще', price: 500 },
-      { name: 'Дуплексне сканування судин нирок', note: null, prep: 'Проводиться натще', price: 500 },
-      { name: 'Дуплексне сканування артерій черевної порожнини', note: null, prep: 'Проводиться натще', price: 500 },
-      { name: 'Дуплексне сканування вен однієї кінцівки', note: null, prep: null, price: 500 },
-      { name: 'Дуплексне сканування артерій однієї кінцівки', note: null, prep: null, price: 500 },
-      { name: 'Дуплексне сканування вен та артерій однієї кінцівки', note: null, prep: null, price: 650 },
-      { name: 'Дуплексне сканування вен обох нижніх (або верхніх) кінцівок', note: null, prep: null, price: 650 },
-      { name: 'Дуплексне сканування артерій обох нижніх (або верхніх) кінцівок', note: null, prep: null, price: 650 },
-      { name: 'Дуплексне сканування судин однієї кінцівки (вени або артерії) та клубові судини', note: null, prep: null, price: 650 },
-      { name: 'УЗД вен та артерій нижніх (або верхніх) кінцівок', note: null, prep: null, price: 800 },
-      { name: 'УЗД судин (вени або артерії) кінцівок та клубові судини (вени або артерії)', note: null, prep: null, price: 800 },
-      { name: 'УЗД вен та артерій кінцівок і клубові судини', note: null, prep: null, price: 1000 },
+      { name: { uk: 'Дуплексне сканування судин шиї та голови (екстракраніальний відділ)', en: 'Duplex scan of head and neck vessels (extracranial)' }, note: null, prep: PREP_FASTING, price: 600 },
+      { name: { uk: 'Дуплексне сканування черевного відділу аорти', en: 'Duplex scan of the abdominal aorta' }, note: null, prep: PREP_FASTING, price: 500 },
+      { name: { uk: 'Дуплексне сканування судин нирок', en: 'Duplex scan of the renal vessels' }, note: null, prep: PREP_FASTING, price: 500 },
+      { name: { uk: 'Дуплексне сканування артерій черевної порожнини', en: 'Duplex scan of the abdominal arteries' }, note: null, prep: PREP_FASTING, price: 500 },
+      { name: { uk: 'Дуплексне сканування вен однієї кінцівки', en: 'Duplex scan of the veins of one limb' }, note: null, prep: null, price: 500 },
+      { name: { uk: 'Дуплексне сканування артерій однієї кінцівки', en: 'Duplex scan of the arteries of one limb' }, note: null, prep: null, price: 500 },
+      { name: { uk: 'Дуплексне сканування вен та артерій однієї кінцівки', en: 'Duplex scan of the veins and arteries of one limb' }, note: null, prep: null, price: 650 },
+      { name: { uk: 'Дуплексне сканування вен обох нижніх (або верхніх) кінцівок', en: 'Duplex scan of the veins of both legs (or arms)' }, note: null, prep: null, price: 650 },
+      { name: { uk: 'Дуплексне сканування артерій обох нижніх (або верхніх) кінцівок', en: 'Duplex scan of the arteries of both legs (or arms)' }, note: null, prep: null, price: 650 },
+      { name: { uk: 'Дуплексне сканування судин однієї кінцівки (вени або артерії) та клубові судини', en: 'Duplex scan of the vessels of one limb (veins or arteries) and the iliac vessels' }, note: null, prep: null, price: 650 },
+      { name: { uk: 'УЗД вен та артерій нижніх (або верхніх) кінцівок', en: 'Ultrasound of the veins and arteries of the legs (or arms)' }, note: null, prep: null, price: 800 },
+      { name: { uk: 'УЗД судин (вени або артерії) кінцівок та клубові судини (вени або артерії)', en: 'Ultrasound of limb vessels (veins or arteries) and iliac vessels (veins or arteries)' }, note: null, prep: null, price: 800 },
+      { name: { uk: 'УЗД вен та артерій кінцівок і клубові судини', en: 'Ultrasound of limb veins and arteries and the iliac vessels' }, note: null, prep: null, price: 1000 },
     ],
   },
 ];

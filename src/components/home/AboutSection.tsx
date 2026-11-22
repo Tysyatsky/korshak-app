@@ -1,19 +1,17 @@
 import { stats } from '../../data/home';
+import { useT } from '../../i18n/context';
 import styles from './AboutSection.module.scss';
 
 export default function AboutSection() {
+  const { t, l } = useT();
+
   return (
     <section className={styles.aboutSection}>
       <div className={`container ${styles.aboutSectionInner}`}>
         <div className={styles.aboutSectionLeft}>
-          <h2 className={styles.aboutSectionHeading}>Про мене</h2>
+          <h2 className={styles.aboutSectionHeading}>{t.about.heading}</h2>
           <div className={styles.aboutSectionText}>
-            <p>
-              Як лікар ультразвукової діагностики вищої категорії, я пройшла шлях від діагностичного центру до приватної практики. До 2017 року працювала завідуючим відділенням ультразвукової діагностики, проводила післядипломну освіту лікарів Тернопільського та Львівського медичних інститутів.
-            </p>
-            <p>
-              Сьогодні веду приватну практику, поєднуючи звичайні огляди з складними діагностичними випадками.
-            </p>
+            {t.about.paragraphs.map((p) => <p key={p}>{p}</p>)}
           </div>
         </div>
         <div className={styles.aboutSectionRight}>
@@ -21,7 +19,7 @@ export default function AboutSection() {
             {stats.map((s) => (
               <div key={s.value} className={styles.aboutStatItem}>
                 <span className={styles.aboutStatValue}>{s.value}</span>
-                <span className={styles.aboutStatLabel}>{s.label}</span>
+                <span className={styles.aboutStatLabel}>{l(s.label)}</span>
               </div>
             ))}
           </div>

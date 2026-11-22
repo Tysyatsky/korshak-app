@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { RefObject } from 'react';
+import { useT } from '../i18n/context';
 import styles from './ScrollToServices.module.scss';
 
 interface Props {
@@ -7,6 +8,7 @@ interface Props {
 }
 
 const ScrollToServices = ({ targetRef }: Props) => {
+  const { t } = useT();
   const [visible, setVisible] = useState(false);
   const [isBelow, setIsBelow] = useState(true);
 
@@ -34,9 +36,9 @@ const ScrollToServices = ({ targetRef }: Props) => {
     <button
       className={`${styles.button} ${!visible ? styles.hidden : ''}`}
       onClick={handleClick}
-      aria-label="Перейти до послуг"
+      aria-label={t.scrollToServices.aria}
     >
-      До послуг {isBelow ? '↓' : '↑'}
+      {t.scrollToServices.label} {isBelow ? '↓' : '↑'}
     </button>
   );
 };

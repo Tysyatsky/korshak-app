@@ -1,24 +1,27 @@
 import { reviews } from '../../data/home';
+import { useT } from '../../i18n/context';
 import styles from './ReviewsSection.module.scss';
 
 export default function ReviewsSection() {
+  const { t, l } = useT();
+
   return (
     <section className={styles.reviews}>
       <div className={`container ${styles.reviewsInner}`}>
-        <h2 className={styles.reviewsTitle}>Відгуки про мене</h2>
+        <h2 className={styles.reviewsTitle}>{t.reviews.heading}</h2>
         <div className={styles.reviewsGrid}>
           {reviews.map((r) => (
             <div
-              key={r.name}
+              key={r.id}
               className={`${styles.reviewCard} ${r.featured ? styles.reviewCardFeatured : ''}`}
             >
               <div className={styles.reviewContent}>
                 <span className={styles.quoteIcon}>❝❝</span>
-                <p className={styles.reviewText}>{r.text}</p>
+                <p className={styles.reviewText}>{l(r.text)}</p>
               </div>
               <div className={styles.reviewAuthor}>
-                <span className={styles.reviewName}>{r.name}</span>
-                <span className={styles.reviewRole}>{r.role}</span>
+                <span className={styles.reviewName}>{l(r.name)}</span>
+                <span className={styles.reviewRole}>{l(r.role)}</span>
               </div>
               {r.featured && (
                 <svg

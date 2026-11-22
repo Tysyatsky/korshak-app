@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import type { Category } from '../../data/services';
 import ServiceRow from './ServiceRow';
+import { useT } from '../../i18n/context';
 import styles from './CategoryAccordion.module.scss';
 
 interface Props {
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const CategoryAccordion = ({ categories }: Props) => {
+  const { l } = useT();
   const [openId, setOpenId] = useState<string | null>(categories[0]?.id ?? null);
 
   return (
@@ -22,7 +24,7 @@ const CategoryAccordion = ({ categories }: Props) => {
                 onClick={() => setOpenId(prev => prev === cat.id ? null : cat.id)}
                 aria-expanded={isOpen}
               >
-                {cat.label}
+                {l(cat.label)}
                 <svg
                   width="16" height="16" viewBox="0 0 16 16" fill="none"
                   className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`}
@@ -34,7 +36,7 @@ const CategoryAccordion = ({ categories }: Props) => {
             <div className={`${styles.body} ${isOpen ? styles.bodyOpen : ''}`}>
               <div className={styles.bodyInner}>
                 {cat.services.map((s) => (
-                  <ServiceRow key={s.name} service={s} className={styles.row} />
+                  <ServiceRow key={s.name.uk} service={s} className={styles.row} />
                 ))}
               </div>
             </div>
