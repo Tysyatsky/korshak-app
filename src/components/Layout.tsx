@@ -1,0 +1,10 @@
+import { ScrollRestoration, Outlet } from 'react-router';
+
+export default function Layout() {
+  return (
+    <>
+      <ScrollRestoration />
+      <Outlet />
+    </>
+  );
+}

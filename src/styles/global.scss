@@ -80,7 +80,8 @@ h2 {
   }
 }
 
-h3 {
+// .h3 lets a heading keep the h3 look when its semantic level is different
+h3, .h3 {
   font-weight: 500;
   font-size: 40px;
   line-height: 48px;

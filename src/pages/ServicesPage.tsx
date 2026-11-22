@@ -32,7 +32,7 @@ const [search, setSearch] = useState('');
       <main className={styles.main}>
         <div className="container">
           <div className={styles.header}>
-            <h2 className={styles.title}>Послуги</h2>
+            <h1 className={styles.title}>Послуги</h1>
             <p className={styles.subtitle}>Усі ціни та послуги актуальні станом на квітень 2026 року.</p>
           </div>
 

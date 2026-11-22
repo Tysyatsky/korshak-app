@@ -12,6 +12,12 @@
   }
 }
 
+// Semantic h2 around the toggle; it must not pick up the global h2 typography
+.heading {
+  font: inherit;
+  letter-spacing: normal;
+}
+
 .header {
   width: 100%;
   display: flex;

@@ -29,7 +29,7 @@ const LoginPage = () => {
             </div>
 
             <div className={styles.heading}>
-              <h3>Вхід до особистого кабінету</h3>
+              <h1 className="h3">Вхід до особистого кабінету</h1>
               <p className={`caption ${styles.sub}`}>
                 Увійдіть, щоб переглядати свої записи та результати обстежень
               </p>

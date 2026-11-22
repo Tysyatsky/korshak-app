@@ -16,18 +16,21 @@ const CategoryAccordion = ({ categories }: Props) => {
         const isOpen = openId === cat.id;
         return (
           <div key={cat.id} className={styles.item}>
-            <button
-              className={`${styles.header} ${isOpen ? styles.headerOpen : ''}`}
-              onClick={() => setOpenId(prev => prev === cat.id ? null : cat.id)}
-            >
-              {cat.label}
-              <svg
-                width="16" height="16" viewBox="0 0 16 16" fill="none"
-                className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`}
+            <h2 className={styles.heading}>
+              <button
+                className={`${styles.header} ${isOpen ? styles.headerOpen : ''}`}
+                onClick={() => setOpenId(prev => prev === cat.id ? null : cat.id)}
+                aria-expanded={isOpen}
               >
-                <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
+                {cat.label}
+                <svg
+                  width="16" height="16" viewBox="0 0 16 16" fill="none"
+                  className={`${styles.chevron} ${isOpen ? styles.chevronOpen : ''}`}
+                >
+                  <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </h2>
             <div className={`${styles.body} ${isOpen ? styles.bodyOpen : ''}`}>
               <div className={styles.bodyInner}>
                 {cat.services.map((s) => (

@@ -6,7 +6,7 @@ export default function EquipmentSection() {
     <section className={styles.equipment}>
       <div className={`container ${styles.equipmentInner}`}>
         <div className={styles.equipmentInfo}>
-          <h3 className={styles.equipmentTitle}>Моє обладнання</h3>
+          <h2 className={`h3 ${styles.equipmentTitle}`}>Моє обладнання</h2>
           <div className={styles.equipmentDesc}>
             <p>Уважність — це основа моєї роботи: від кожної розмови з пацієнтом до вибору обладнання. За 25 років практики я навчилась бачити те, що інші можуть пропустити, та спиратися лише на найнадійніші технології.</p>
             <p>Завдяки цьому ви отримуєте чіткі відповіді, економію часу та впевненість у кожній діагностиці.</p>

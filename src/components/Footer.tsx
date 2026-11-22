@@ -19,7 +19,8 @@ function Footer() {
 
         <div className={styles.right}>
           <nav className={styles.nav}>
-<NavLink to="/posluhy" className={styles.link}>Послуги</NavLink>
+            <NavLink to="/" end className={styles.link}>Головна</NavLink>
+            <NavLink to="/posluhy" className={styles.link}>Послуги</NavLink>
             <NavLink to="/kontakty" className={styles.link}>Контакти</NavLink>
           </nav>
           {/* <div className={styles.credits}>

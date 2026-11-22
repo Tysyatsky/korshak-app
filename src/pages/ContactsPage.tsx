@@ -61,8 +61,8 @@ function ContactsPage() {
       <section className={styles.address}>
         <div className={`container ${styles.addressInner}`}>
           <div className={styles.addressText}>
-            <h2 className={styles.title}>Контакти</h2>
-            <h3>Адреса</h3>
+            <h1 className={styles.title}>Контакти</h1>
+            <h2 className="h3">Адреса</h2>
             <p>
               Знайдіть нас за адресою, враховуючи зручний розклад і доступність для відвідувачів
             </p>
@@ -120,7 +120,7 @@ function ContactsPage() {
       <section className={styles.faq}>
         <div className={`container ${styles.faqInner}`}>
           <div className={styles.faqHeader}>
-            <h3>Популярні питання</h3>
+            <h2 className="h3">Популярні питання</h2>
             <p>Ваш спокій — завжди мій пріоритет. Тут ви знайдете відповіді на ваші потенційні питання</p>
           </div>
           <div className={styles.faqList}>

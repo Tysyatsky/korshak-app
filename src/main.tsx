@@ -1,51 +1,55 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { createBrowserRouter, RouterProvider, ScrollRestoration, Outlet } from "react-router";
+import { createRoot, hydrateRoot } from 'react-dom/client'
+import { createBrowserRouter, RouterProvider } from "react-router";
 import { MantineProvider } from '@mantine/core';
 import '@mantine/core/styles.css';
 import '@mantine/carousel/styles.css';
-import HomePage from "./pages/HomePage";
-import ServicesPage from "./pages/ServicesPage";
-import ContactsPage from "./pages/ContactsPage";
-import LoginPage from "./pages/LoginPage";
+import { routes } from './routes';
+import { pageMeta, canonicalUrl, normalizePath } from './data/seo';
 
-function Layout() {
-  return (
-    <>
-      <ScrollRestoration />
-      <Outlet />
-    </>
-  );
-}
-
-const router = createBrowserRouter([
-  {
-    element: <Layout />,
-    children: [
-      { path: "/", element: <HomePage /> },
-      { path: "/posluhy", element: <ServicesPage /> },
-      { path: "/kontakty", element: <ContactsPage /> },
-      { path: "/login", element: <LoginPage /> },
-    ],
-  },
-], { basename: import.meta.env.BASE_URL });
+const router = createBrowserRouter(routes, { basename: import.meta.env.BASE_URL });
 
 declare global {
   interface Window { gtag: (...args: unknown[]) => void; }
 }
 
+// Keep title, description and canonical in sync on client-side navigation
+function applyPageMeta(pathname: string) {
+  const meta = pageMeta[normalizePath(pathname)];
+  if (!meta) return;
+  document.title = meta.title;
+  document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description);
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl(pathname));
+}
+
+let lastPath = router.state.location.pathname;
 router.subscribe((state) => {
+  const path = state.location.pathname;
+  if (path === lastPath) return;
+  lastPath = path;
+  applyPageMeta(path);
   if (typeof window.gtag === 'function') {
     window.gtag('event', 'page_view', {
-      page_path: state.location.pathname,
+      page_path: path,
     });
   }
 });
 
-createRoot(document.getElementById('root')!).render(
+const app = (
   <StrictMode>
     <MantineProvider>
       <RouterProvider router={router} />
     </MantineProvider>
-  </StrictMode>,
+  </StrictMode>
 );
+
+const rootEl = document.getElementById('root')!;
+// Pre-rendered pages already contain markup, so hydrate them. Other routes (dev, /login via 404.html)
+// render from scratch, discarding any fallback markup that belongs to a different page.
+const isPrerendered = normalizePath(router.state.location.pathname) in pageMeta;
+if (rootEl.hasChildNodes() && isPrerendered) {
+  hydrateRoot(rootEl, app);
+} else {
+  rootEl.replaceChildren();
+  createRoot(rootEl).render(app);
+}
